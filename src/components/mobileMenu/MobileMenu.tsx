@@ -1,9 +1,13 @@
 import React from "react";
 import * as S from "./MobileMenu.styles";
 
-const MobileMenu = () => {
+type props = {
+  status: boolean;
+};
+
+const MobileMenu = ({ status }: props) => {
   return (
-    <S.MenuContainer>
+    <S.MenuContainer status={status}>
       <S.Navbar>
         <S.NavLink activeClass="active" to="hero" spy={true} smooth={true} offset={-75} duration={500}>
           hero

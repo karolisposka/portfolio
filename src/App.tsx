@@ -5,6 +5,7 @@ import Hero from "./components/hero/Hero";
 import Title from "./components/title/Title";
 import MobileMenu from "./components/mobileMenu/MobileMenu";
 import Container from "./components/Container/Container";
+import ProjectsCard from "./components/project/ProjectsCard";
 
 function App() {
   const [mobileMenuStatus, setMobileMenuStatus] = useState<boolean>(false);
@@ -51,11 +52,16 @@ function App() {
       />
       <Container>
         <Hero id="hero" />
-        {mobileMenuStatus && <MobileMenu />}
+        <MobileMenu status={mobileMenuStatus} />
         <Section visability={portfolioVisible} setVisability={setPortfolioVisable} id="portfolio">
           <Title
             title="projects"
             subtitle="Here you will find some of the personal projects that I created with each project containing its own case study"
+          />
+          <ProjectsCard
+            image={require("./assets/thumbnail_kanban.png")}
+            title="Kanban board"
+            text="Here you will find some of the personal projects that I created with each project containing its own case study"
           />
         </Section>
         <Section visability={aboutVisible} setVisability={setAboutVisiable} id="about">
