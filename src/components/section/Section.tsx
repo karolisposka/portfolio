@@ -29,7 +29,7 @@ const Section = ({ children, id, setVisability, visability }: props) => {
   }, []);
 
   return (
-    <S.Section id={id} style={{ height: "100vh" }} ref={ref}>
+    <S.Section id={id} ref={ref}>
       {visability && children}
     </S.Section>
   );

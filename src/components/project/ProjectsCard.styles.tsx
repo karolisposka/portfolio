@@ -1,7 +1,11 @@
 import Styled, { keyframes } from "styled-components";
-import { Link } from "react-router-dom";
+import Button from "../scrollBtn/ScrollBtn";
+//Makes projectCard component to slide from right on render.
 
-const test = keyframes`
+type props = {
+  test: boolean;
+};
+const slide = keyframes`
     0%{
         transform: translateX(300px);
         opacity:0;
@@ -12,22 +16,39 @@ const test = keyframes`
     }
 `;
 
-export const Container = Styled.div`
+export const Container = Styled.div<props>`
     width:100%;
-    margin-top:1rem;
+    margin:2rem 0; 
     display:flex;
     flex-direction:column;
     align-items:center;
-    animation-delay: 1s;
-    animation: 0.7s ${test} forwards;
+    animation-delay: 10s;
+    animation:0.7s ${slide} forwards;
     @media(min-width:577px){
         flex-direction:row;
     }
 `;
 
+export const Image = Styled.img`
+    object-fit:contain;
+    width:100%;
+    height:160px;
+    margin: 0 auto;
+    @media(min-width:577px){
+        width:50%;
+        height:350px;
+    }
+    
+`;
+
 export const InfoWrapper = Styled.div`
     align-self: stretch;
     flex:1;
+    @media(max-width:576px){
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
 `;
 
 export const Title = Styled.p`
@@ -51,18 +72,7 @@ export const Text = Styled.p`
 
 `;
 
-export const LinkBtn = Styled.button`
+export const LinkBtn = Styled(Button)`
     
-
-`;
-
-export const Image = Styled.img`
-    object-fit:contain;
-    width:100%;
-    height:250px;
-    margin: 1rem auto;
-    @media(min-width:577px){
-        width:50%;
-    }
     
 `;

@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./ScrollBtn.styles";
 
 type props = {
-  to: string;
+  to?: any;
   text: string;
   type: "button" | "scroll";
   className?: string;
@@ -18,7 +18,11 @@ const Button = ({ to, text, type, className }: props) => {
       </>
     );
   } else {
-    return <button> hello </button>;
+    return (
+      <S.NavigateBtn to={to} className={className}>
+        {text}
+      </S.NavigateBtn>
+    );
   }
 };
 

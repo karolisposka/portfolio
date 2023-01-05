@@ -28,6 +28,7 @@ export const Span = Styled.span`
 
 export const Navbar = Styled.nav`
     display:none;
+    margin:0 1rem;
     @media(min-width:577px){
         display:block;
     }
@@ -37,7 +38,7 @@ export const NavLink = Styled(Link)`
     margin: 0 1rem; 
     font-family:${(props) => props.theme.fonts.name};
     font-weight:600;
-    font-size:12px;
+    font-size:16px;
     text-transform: uppercase;
     transition:0.2s ease-in-out;
     &&.active{

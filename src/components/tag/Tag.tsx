@@ -1,7 +1,12 @@
 import React from "react";
+import * as S from "./Tag.styles";
 
-const Tag = () => {
-  return <div>Tag</div>;
+type props = {
+  text: string;
+};
+
+const Tag = ({ text }: props) => {
+  return <S.Tag>{text}</S.Tag>;
 };
 
 export default Tag;
