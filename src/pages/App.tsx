@@ -9,6 +9,7 @@ import Container from "../components/Container/Container";
 import ProjectsCard from "../components/project/ProjectsCard";
 import TagsList from "../components/tagsList/TagsList";
 import Paragraph from "../components/paragrapth/Paragraph";
+import Bio from "../components/bio/Bio";
 
 const tags: string[] = [
   "HTML",
@@ -70,46 +71,12 @@ const App: React.FunctionComponent = () => {
       <Container>
         <Hero id="hero" />
         <MobileMenu status={mobileMenuStatus} />
-        <Section visability={portfolioVisible} setVisability={setPortfolioVisable} id="portfolio">
-          <Title
-            title="projects"
-            subtitle="Here you will find some of the personal projects that I created with each project containing its own case study"
-          />
-          <ProjectsCard
-            test={portfolioVisible}
-            to="1"
-            image={require("../assets/thumbnail_kanban.png")}
-            title="Kanban board"
-            text="Here you will find some of the personal projects that I created with each project containing its own case study"
-          />
-          <ProjectsCard
-            test={portfolioVisible}
-            to="1"
-            image={require("../assets/thumbnail_feedback.png")}
-            title="Feedback App"
-            text="Here you will find some of the personal projects that I created with each project containing its own case study"
-          />
-          <ProjectsCard
-            test={portfolioVisible}
-            to="1"
-            image={require("../assets/thumbnail_flags.png")}
-            title="Flags Application"
-            text="Here you will find some of the personal projects that I created with each project containing its own case study"
-          />
-          <ProjectsCard
-            test={portfolioVisible}
-            to="1"
-            image={require("../assets/thumbnail_food.png")}
-            title="E-Commerce"
-            text="Here you will find some of the personal projects that I created with each project containing its own case study"
-          />
-        </Section>
         <Section visability={aboutVisible} setVisability={setAboutVisiable} id="about">
           <Title
             title="About me"
             subtitle="Here you will find some of the personal projects that I created with each project containing its own case study"
           />
-          <div style={{ display: "flex" }}>
+          <Bio>
             <Paragraph
               title="My Story"
               text="My path in front-end engineering started one year ago in CodeAcademy courses, where I got to know with
@@ -120,7 +87,45 @@ const App: React.FunctionComponent = () => {
                 candidate for this or any other position in your company."
             />
             <TagsList title="Skill set" tags={tags} />
-          </div>
+          </Bio>
+        </Section>
+        <Section visability={portfolioVisible} setVisability={setPortfolioVisable} id="portfolio">
+          <Title
+            title="projects"
+            subtitle="Here you will find some of the personal projects that I created with each project containing its own case study"
+          />
+          <ProjectsCard
+            index={1}
+            scrolled={portfolioVisible}
+            to="1"
+            image={require("../assets/thumbnail_kanban.png")}
+            title="Kanban board"
+            text="Here you will find some of the personal projects that I created with each project containing its own case study"
+          />
+          <ProjectsCard
+            index={2}
+            scrolled={portfolioVisible}
+            to="1"
+            image={require("../assets/thumbnail_feedback.png")}
+            title="Feedback App"
+            text="Here you will find some of the personal projects that I created with each project containing its own case study"
+          />
+          <ProjectsCard
+            index={3}
+            scrolled={portfolioVisible}
+            to="1"
+            image={require("../assets/thumbnail_flags.png")}
+            title="Flags Application"
+            text="Here you will find some of the personal projects that I created with each project containing its own case study"
+          />
+          <ProjectsCard
+            index={4}
+            scrolled={portfolioVisible}
+            to="1"
+            image={require("../assets/thumbnail_food.png")}
+            title="E-Commerce"
+            text="Here you will find some of the personal projects that I created with each project containing its own case study"
+          />
         </Section>
         <Outlet />
       </Container>

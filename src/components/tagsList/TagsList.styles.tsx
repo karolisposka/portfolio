@@ -12,10 +12,12 @@ const fadeIn = keyframes`
 `;
 
 export const Wrapper = Styled.div`
-    margin:2rem;
     flex:1;
     animation-delay: 1.4s;
     animation: ${fadeIn} 0.7s forwards;
+    @media(min-width:577px){
+        margin:2rem;
+    }
 
 
 `;

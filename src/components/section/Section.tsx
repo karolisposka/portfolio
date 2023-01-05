@@ -10,7 +10,7 @@ type props = {
 
 const Section = ({ children, id, setVisability, visability }: props) => {
   const options = {
-    threshold: 0.5,
+    threshold: 0.75,
   };
 
   const ref: any = useRef();

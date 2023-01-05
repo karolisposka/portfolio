@@ -2,9 +2,6 @@ import Styled, { keyframes } from "styled-components";
 import Button from "../scrollBtn/ScrollBtn";
 //Makes projectCard component to slide from right on render.
 
-type props = {
-  test: boolean;
-};
 const slide = keyframes`
     0%{
         transform: translateX(300px);
@@ -16,13 +13,12 @@ const slide = keyframes`
     }
 `;
 
-export const Container = Styled.div<props>`
+export const Container = Styled.div`
     width:100%;
     margin:2rem 0; 
     display:flex;
     flex-direction:column;
     align-items:center;
-    animation-delay: 10s;
     animation:0.7s ${slide} forwards;
     @media(min-width:577px){
         flex-direction:row;

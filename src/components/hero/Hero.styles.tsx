@@ -32,7 +32,7 @@ export const Title = Styled.h1`
 `;
 
 export const Span = Styled.span`
-    color: yellow;
+    color: #F5EA5A;
 `;
 
 export const Subtitle = Styled.p`
@@ -62,9 +62,11 @@ export const ScrollIndicator = Styled.div`
 const bounceAnimation = keyframes`
     0%{
         transform: translateY(0rem);
+        opacity: 1;
     }
     100%{
         transform: translateY(1.2rem);
+        opacity: 0;
     }
 
 `;
@@ -74,7 +76,7 @@ export const ScrollIndicatorItem = Styled.div`
     width:0.25rem;
     height:0.25rem;
     border-radius:50%;
-    animation: ${bounceAnimation} 1s infinite;
+    animation: ${bounceAnimation} 1.5s infinite;
     background:black; //pakeisti spalva
    
 
