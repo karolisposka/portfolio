@@ -98,13 +98,14 @@ const App: React.FunctionComponent = () => {
             subtitle="Here you will find some of the personal projects that I created with each project containing its own case study"
           />
           {data &&
-            data.map((item: any) => (
+            data.map((item: any, index: number) => (
               <ProjectsCard
+                key={index}
                 text={item.attributes.description.trim()}
                 title={item.attributes.title}
                 index={item.id}
                 scrolled={portfolioVisible}
-                to={item.attributes.id}
+                to={`/${item.id}`}
                 image={`${process.env.REACT_APP_BASE_URL}${item.attributes.thumbnail.data.attributes.formats.medium.url}`}
               />
             ))}

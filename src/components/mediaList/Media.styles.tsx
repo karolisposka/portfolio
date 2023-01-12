@@ -36,11 +36,11 @@ export const Link = Styled.a`
 `;
 
 export const GitIcon = Styled(Github)`
-  padding:0.25rem;
+  padding:0.75rem;
  
 
 `;
 
 export const LinkedinIcon = Styled(Linkedin)`
-  padding:0.25rem;
+  padding:0.75rem;
 `;

@@ -37,5 +37,5 @@ export const TagsList = Styled.div`
 `;
 
 export const ListTag = Styled(Tag)`
-    
+    margin: 0.25rem 0.5rem 0.25rem 0;
 `;

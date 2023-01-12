@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as S from "./ProjectsCard.styles";
 
 type props = {
-  image: any; //change type
+  image: string;
   title: string;
   text: string;
   to: string | number;
@@ -13,7 +13,6 @@ type props = {
 const ProjectsCard = ({ image, title, text, to, scrolled, index }: props) => {
   const [display, setDisplay] = useState(false);
 
-  console.log(image);
   //this effect is used to identify when intersepction observer slides to right place and set delay to rendering
 
   useEffect(() => {

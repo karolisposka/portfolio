@@ -10,13 +10,14 @@ const Fetch = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`${base}/api/projects/?populate=*`);
+      const response = await fetch(`${base}/api/projects/?populate=thumbnail`);
       const data = await response.json();
       setData(data.data);
     } catch (err) {
       console.log("Oops! Something wrong with server. Please try again later");
     }
   };
+
   useEffect(() => {
     fetchData();
   }, []);
