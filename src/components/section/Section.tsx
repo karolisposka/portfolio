@@ -10,7 +10,8 @@ type props = {
 
 const Section = ({ children, id, setVisability, visability }: props) => {
   const options = {
-    threshold: 0.75,
+    threshold: 0.5,
+    rootMargin: "150px",
   };
 
   const ref: any = useRef();
@@ -29,9 +30,11 @@ const Section = ({ children, id, setVisability, visability }: props) => {
   }, []);
 
   return (
-    <S.Section id={id} ref={ref}>
-      {visability && children}
-    </S.Section>
+    <S.Container>
+      <S.Section id={id} ref={ref}>
+        {visability && children}
+      </S.Section>
+    </S.Container>
   );
 };
 

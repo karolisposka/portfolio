@@ -4,7 +4,7 @@ import * as S from "./ScrollBtn.styles";
 type props = {
   to?: any;
   text: string;
-  type: "button" | "scroll";
+  type: "button" | "scroll" | "link";
   className?: string;
 };
 

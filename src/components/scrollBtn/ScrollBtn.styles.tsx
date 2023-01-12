@@ -36,3 +36,7 @@ export const NavigateBtn = Styled(Link)`
     background:#def10ca2;
   }
 `;
+
+export const AnchorLink = Styled.a`
+  
+`;

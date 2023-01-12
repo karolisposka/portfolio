@@ -6,6 +6,7 @@ export const Wrapper = Styled.div`
     flex-direction:column;
     align-items:center
   }
+  display:flex;
   flex-direction:row;
 
 `;

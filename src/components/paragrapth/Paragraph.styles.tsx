@@ -27,5 +27,4 @@ export const Title = Styled.h3`
 export const Paragrapth = Styled.p`
     letter-spacing:1.5px;
     line-height:24px;
-
 `;

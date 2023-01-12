@@ -1,5 +1,6 @@
 import Styled, { keyframes } from "styled-components";
 import Button from "../scrollBtn/ScrollBtn";
+
 //Makes projectCard component to slide from right on render.
 
 const slide = keyframes`
@@ -61,6 +62,7 @@ export const Title = Styled.p`
 export const Text = Styled.p`
     text-align:center;
     line-height:24px;
+    white-space: pre-wrap;
     @media(min-width:577px){
         text-align:left;
     }

@@ -7,7 +7,7 @@ type props = {
 export const Container = Styled.section<props>`
     background-image: url(${(props) => props.url});
     background-size:cover;
-    height:100vh;
+    height:calc(100vh - 86.4px);
     display:Flex;
     justify-content:center;
     align-items:center;
@@ -52,7 +52,7 @@ export const ScrollIndicator = Styled.div`
     height:2rem;
     border-radius:2rem;
     position:absolute;
-    top:90vh;
+    top:75vh;
     border:1px solid rgba(0,0,0,0.3); //pakeisti spalva
     @media(max-width:567px){
         top: 80vh;

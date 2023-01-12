@@ -13,6 +13,7 @@ type props = {
 const ProjectsCard = ({ image, title, text, to, scrolled, index }: props) => {
   const [display, setDisplay] = useState(false);
 
+  console.log(image);
   //this effect is used to identify when intersepction observer slides to right place and set delay to rendering
 
   useEffect(() => {
@@ -20,6 +21,12 @@ const ProjectsCard = ({ image, title, text, to, scrolled, index }: props) => {
     if (scrolled) {
       setTimeout(() => {
         setDisplay(true);
+        setTimeout(() => {
+          if (index !== 1) {
+            const position = window.scrollY;
+            window.scrollTo({ top: position + 500, behavior: "smooth" });
+          }
+        }, 200);
       }, delay);
     }
     return;

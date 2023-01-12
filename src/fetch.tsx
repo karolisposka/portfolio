@@ -1,16 +1,27 @@
-import React, { useEffect, useState } from "react";
-import Router from "./Router";
+import React, { useEffect, useState, useContext } from "react";
+import { MainPageData } from "./context";
+import { Outlet } from "react-router-dom";
+
 import Loader from "./components/loader/Loader";
 
 const Fetch = () => {
-  const [test, setTest] = useState(false);
+  const [data, setData] = useContext(MainPageData);
+  const base = process.env.REACT_APP_BASE_URL;
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`${base}/api/projects/?populate=*`);
+      const data = await response.json();
+      setData(data.data);
+    } catch (err) {
+      console.log("Oops! Something wrong with server. Please try again later");
+    }
+  };
   useEffect(() => {
-    setTimeout(() => {
-      setTest(true);
-    }, 2000);
+    fetchData();
   }, []);
 
-  return test ? <Router /> : <Loader />;
+  return data ? <Outlet /> : <Loader />;
 };
 
 export default Fetch;

@@ -3,7 +3,7 @@ import { Link } from "react-scroll";
 import { FaBars } from "react-icons/fa";
 
 export const Header = Styled.div`
-    position:fixed;
+    position:sticky;
     padding: 2rem 0;
     top:0;
     left:0;
@@ -35,17 +35,17 @@ export const Navbar = Styled.nav`
 `;
 
 export const NavLink = Styled(Link)`
-    margin: 0 1rem; 
+    margin: 0 2rem; 
     font-family:${(props) => props.theme.fonts.name};
-    font-weight:600;
-    font-size:16px;
+    font-weight:900;
+    font-size:19px;
     text-transform: uppercase;
     transition:0.2s ease-in-out;
-    &&.active{
-        border-bottom: 2px solid ${(props) => props.theme.background.secondary};
+    &.active{
+        color: #def10ca2;
     }
-    &&:hover{
-        text-shadow: 1px 1px 0px black;
+    &:not(.active):hover{
+        color: #A31ACB
     }
 `;
 
