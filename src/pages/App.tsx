@@ -34,8 +34,6 @@ const App: React.FunctionComponent = () => {
   const [portfolioVisible, setPortfolioVisable] = useState<boolean>(false);
   const [data] = useContext(MainPageData);
 
-  console.log(data[0].attributes.thumbnail.data.attributes.formats.thumbnail.url);
-
   const updatePosition = () => {
     if (mobileMenuStatus) {
       setPositionOpenedMenu(window.scrollY);

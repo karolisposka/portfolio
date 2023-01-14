@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import Container from "../components/Container/Container";
+import { useParams, Outlet, useNavigate } from "react-router-dom";
 import Loader from "../components/loader/Loader";
 import SingleProject from "../components/SingleProject/SingleProject";
 import TagsList from "../components/tagsList/TagsList";
+import Title from "../components/title/Title";
 import Carsousel from "../components/carousel/Carsousel";
 
 const Project: React.FunctionComponent = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState();
   const { id } = useParams();
 
@@ -15,7 +16,7 @@ const Project: React.FunctionComponent = () => {
     try {
       const response = await fetch(`${base}/api/projects/${id}/?populate=carousel`);
       const data = await response.json();
-      setData(data);
+      setData(data.data);
     } catch (err) {
       console.log(err);
     }
@@ -26,15 +27,28 @@ const Project: React.FunctionComponent = () => {
   }, []);
 
   const techs: string[] = ["CSS", "HTML", "REACT", "MONGODB", "NODEJS"];
-  const images: string[] = ["../assets/kanban2.png"];
+
   return (
     <>
       {!data ? (
         <Loader />
       ) : (
         <SingleProject>
-          <Carsousel images={images} />
-          <TagsList title="key techs" tags={techs} />
+          <Title title="Kanban Board" subtitle="Project number one" />
+          <div style={{ display: "flex" }}>
+            <div style={{ width: "50%", height: "400px" }}>
+              <Carsousel
+                images={data}
+                handleZoom={(image) => {
+                  navigate(`/${id}/fullsize${image}`);
+                }}
+              />
+            </div>
+            <div style={{ marginLeft: "2rem" }}>
+              <TagsList title="Key technologies" tags={techs} />
+            </div>
+          </div>
+          <Outlet />
         </SingleProject>
       )}
     </>

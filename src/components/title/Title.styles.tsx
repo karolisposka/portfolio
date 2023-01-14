@@ -17,6 +17,7 @@ export const Wrapper = Styled.div`
   font-family: ${(props) => props.theme.fonts.name};
   animation-delay: 0.3s;
   animation: 0.7s ${slideAnimation} forwards;
+  padding: 2rem 0;
 `;
 
 export const Title = Styled.h1`

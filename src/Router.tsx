@@ -4,6 +4,7 @@ import { MainPageData } from "./context";
 import Project from "./pages/Project";
 import Fetch from "./fetch";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import ZoomedImage from "./pages/ZoomedImage";
 
 const Router: React.FunctionComponent = () => {
   const [data, setData] = useState<string[] | null>(null);
@@ -13,7 +14,9 @@ const Router: React.FunctionComponent = () => {
         <Routes>
           <Route path="" element={<Fetch />}>
             <Route path="/" element={<App />} />
-            <Route path="/:id" element={<Project />} />
+            <Route path="/:id" element={<Project />}>
+              <Route path="/:id/fullsize/uploads/:image" element={<ZoomedImage />} />
+            </Route>
           </Route>
         </Routes>
       </MainPageData.Provider>

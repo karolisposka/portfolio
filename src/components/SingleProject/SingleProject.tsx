@@ -7,7 +7,7 @@ type props = {
 
 const SingleProject = ({ children }: props) => {
   return (
-    <S.Container>
+    <S.Container url={require("../../assets/background.jpg")}>
       <S.Section>{children}</S.Section>
     </S.Container>
   );
