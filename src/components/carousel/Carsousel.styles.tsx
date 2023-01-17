@@ -1,4 +1,4 @@
-import Styled, { keyframes } from "styled-components";
+import Styled from "styled-components";
 import { AiOutlineZoomIn, AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
 export const Container = Styled.div`
@@ -12,8 +12,6 @@ export const ImageWrapper = Styled.div`
   position:relative;
   height:100%;
 `;
-
-//image keframes
 
 export const MainImage = Styled.img`
   width:500px;
