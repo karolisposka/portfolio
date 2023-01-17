@@ -29,7 +29,7 @@ const ProjectsCard = ({ image, title, text, to, scrolled, index }: props) => {
       }, delay);
     }
     return;
-  }, [scrolled]);
+  }, [scrolled, index]);
 
   return (
     <>
