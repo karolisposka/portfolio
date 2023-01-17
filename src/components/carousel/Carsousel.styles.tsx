@@ -3,9 +3,13 @@ import { AiOutlineZoomIn, AiOutlineArrowRight, AiOutlineArrowLeft } from "react-
 
 export const Container = Styled.div`
   overflow:hidden;
-  width:500px;
+  width:calc(100% - 4rem);
   height:100%;
+  padding:1rem 2rem;
   position:relative;
+  @media(max-width:576px){
+    
+  }
 `;
 
 export const ImageWrapper = Styled.div`
@@ -14,10 +18,14 @@ export const ImageWrapper = Styled.div`
 `;
 
 export const MainImage = Styled.img`
-  width:500px;
+  width:100%;
   height:100%;
   object-fit:contain;
   border-radius:0.25rem;
+  @media(max-width:576px){
+    max-width:600px;
+    min-width:350px;
+  }
 `;
 
 export const ZoomIn = Styled(AiOutlineZoomIn)`
@@ -31,51 +39,4 @@ export const ZoomIn = Styled(AiOutlineZoomIn)`
   &:hover{
     transform:scale(1.2);
   }
-`;
-
-export const Navigation = Styled.div`
-  position:relative;
-  z-index:999;
-  height:100%;
-`;
-
-export const ArrowRightWrapper = Styled.button`
-  position:absolute;
-  display:flex;
-  right:1rem;
-  align-items:Center;
-  justify-content:center;
-  background:rgba(0,0,0,0.7);
-  width:2rem;
-  height:2rem;
-  border-radius:50%;
-  z-index:99;
-  cursor:pointer;
-`;
-
-export const ArrowLeftWrapper = Styled.button`
-  position:absolute;
-    display:flex;
-    left:1rem;
-    align-items:Center;
-    justify-content:center;
-    background:rgba(0,0,0,0.7);
-    width:2rem;
-    height:2rem;
-    border-radius:50%;
-    z-index:99;
-    cursor:pointer;
-  
-`;
-
-export const ArrowRight = Styled(AiOutlineArrowRight)`
-  font-size:24px;
-  color:red;
-  z-index:99;
-`;
-
-export const ArrowLeft = Styled(AiOutlineArrowLeft)`
-  font-size:24px;
-  color:red;
-  cursor:pointer;
 `;

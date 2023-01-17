@@ -36,26 +36,23 @@ const Project: React.FunctionComponent = () => {
         <SingleProject>
           <Button type="link" to={-1} text="back" />
           <Title title={data.attributes.title} />
-          <div style={{ display: "flex" }}>
-            <div>
-              <Carsousel
-                images={data.attributes.carousel}
-                handleZoom={(image) => {
-                  navigate(`/${id}/fullsize${image}`);
-                }}
-              />
-            </div>
-            <div>
-              <Paragraph text={data.attributes.description} title="Description" />
-              <TagsList style={{ margin: "2rem" }} title="Key technologies" tags={data.attributes.teches.data} />
-              <div style={{ display: "flex", marginLeft: "2rem" }}>
-                {data.attributes.links.data[0].attributes.live && (
-                  <Button type="button" to={data.attributes.links.data[0].attributes.live} text="Live" />
-                )}
-                {data.attributes.links.data[0].attributes.github && (
-                  <Button type="button" to={data.attributes.links.data[0].attributes.github} text="Github" />
-                )}
-              </div>
+
+          <Carsousel
+            images={data.attributes.carousel}
+            handleZoom={(image) => {
+              navigate(`/${id}/fullsize${image}`);
+            }}
+          />
+          <div>
+            <Paragraph text={data.attributes.description} title="Description" />
+            <TagsList style={{ margin: "2rem" }} title="Key technologies" tags={data.attributes.teches.data} />
+            <div style={{ display: "flex", margin: "2rem" }}>
+              {data.attributes.links.data[0].attributes.live && (
+                <Button type="button" to={data.attributes.links.data[0].attributes.live} text="Live" />
+              )}
+              {data.attributes.links.data[0].attributes.github && (
+                <Button type="button" to={data.attributes.links.data[0].attributes.github} text="Github" />
+              )}
             </div>
           </div>
           <Outlet />
