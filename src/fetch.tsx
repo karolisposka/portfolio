@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { MainPageData } from "./context";
 import { Outlet } from "react-router-dom";
 
 import Loader from "./components/loader/Loader";
 
 const Fetch = () => {
-  const [data, bio, setBio, setData] = useContext(MainPageData);
+  const [data, setBio, setData] = useContext(MainPageData);
   const base = process.env.REACT_APP_BASE_URL;
 
   const fetchData = async () => {

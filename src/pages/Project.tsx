@@ -11,8 +11,6 @@ import Carsousel from "../components/carousel/Carsousel";
 const Project: React.FunctionComponent = () => {
   const navigate = useNavigate();
   const [data, setData] = useState<any>();
-  const [images, setImages] = useState();
-  const [techs, setTechs] = useState();
   const { id } = useParams();
 
   const fetchData = async () => {
@@ -25,8 +23,6 @@ const Project: React.FunctionComponent = () => {
       console.log(err);
     }
   };
-
-  console.log(data);
 
   useEffect(() => {
     fetchData();
