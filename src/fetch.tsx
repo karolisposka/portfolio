@@ -13,8 +13,13 @@ const Fetch = () => {
       const res = await fetch(`${base}/api/bios/?populate=teches`);
       const response = await fetch(`${base}/api/projects/?populate=thumbnail`);
       const bio = await res.json();
-      setBio(bio.data);
+      if (bio.data) {
+        setBio(bio.data);
+      }
       const data = await response.json();
+      if (data.data) {
+        setData(data.data);
+      }
       setData(data.data);
     } catch (err) {
       console.log("Oops! Something wrong with server. Please try again later");
