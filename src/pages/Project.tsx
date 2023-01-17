@@ -4,6 +4,7 @@ import Loader from "../components/loader/Loader";
 import SingleProject from "../components/SingleProject/SingleProject";
 import TagsList from "../components/tagsList/TagsList";
 import Title from "../components/title/Title";
+import Layout from "../components/layout/Layout";
 import Paragraph from "../components/paragrapth/Paragraph";
 import Button from "../components/scrollBtn/ScrollBtn";
 import Carsousel from "../components/carousel/Carsousel";
@@ -12,6 +13,14 @@ const Project: React.FunctionComponent = () => {
   const navigate = useNavigate();
   const [data, setData] = useState<any>();
   const { id } = useParams();
+
+  const style = {
+    width: "50%",
+    "@media (npm i radium-width: 576px)": {
+      width: "100%",
+      color: "red",
+    },
+  };
 
   const fetchData = async () => {
     const base = process.env.REACT_APP_BASE_URL;
@@ -36,25 +45,26 @@ const Project: React.FunctionComponent = () => {
         <SingleProject>
           <Button type="link" to={-1} text="back" />
           <Title title={data.attributes.title} />
-
-          <Carsousel
-            images={data.attributes.carousel}
-            handleZoom={(image) => {
-              navigate(`/${id}/fullsize${image}`);
-            }}
-          />
-          <div>
-            <Paragraph text={data.attributes.description} title="Description" />
-            <TagsList style={{ margin: "2rem" }} title="Key technologies" tags={data.attributes.teches.data} />
-            <div style={{ display: "flex", margin: "2rem" }}>
-              {data.attributes.links.data[0].attributes.live && (
-                <Button type="button" to={data.attributes.links.data[0].attributes.live} text="Live" />
-              )}
-              {data.attributes.links.data[0].attributes.github && (
-                <Button type="button" to={data.attributes.links.data[0].attributes.github} text="Github" />
-              )}
+          <Layout>
+            <Carsousel
+              images={data.attributes.carousel}
+              handleZoom={(image) => {
+                navigate(`/${id}/fullsize${image}`);
+              }}
+            />
+            <div style={style}>
+              <Paragraph text={data.attributes.description} title="Description" />
+              <TagsList style={{ margin: "2rem" }} title="Key technologies" tags={data.attributes.teches.data} />
+              <div style={{ display: "flex", margin: "2rem" }}>
+                {data.attributes.links.data[0].attributes.live && (
+                  <Button type="button" to={data.attributes.links.data[0].attributes.live} text="Live" />
+                )}
+                {data.attributes.links.data[0].attributes.github && (
+                  <Button type="button" to={data.attributes.links.data[0].attributes.github} text="Github" />
+                )}
+              </div>
             </div>
-          </div>
+          </Layout>
           <Outlet />
         </SingleProject>
       )}

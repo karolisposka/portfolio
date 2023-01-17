@@ -3,12 +3,12 @@ import { AiOutlineZoomIn, AiOutlineArrowRight, AiOutlineArrowLeft } from "react-
 
 export const Container = Styled.div`
   overflow:hidden;
-  width:calc(100% - 4rem);
+  width:500px;
   height:100%;
   padding:1rem 2rem;
   position:relative;
   @media(max-width:576px){
-    
+    width:calc(100% - 4rem);
   }
 `;
 
@@ -18,13 +18,13 @@ export const ImageWrapper = Styled.div`
 `;
 
 export const MainImage = Styled.img`
-  width:100%;
+  width:500px;
   height:100%;
   object-fit:contain;
   border-radius:0.25rem;
   @media(max-width:576px){
     max-width:600px;
-    min-width:350px;
+    min-width:400px;
   }
 `;
 
