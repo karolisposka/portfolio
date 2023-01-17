@@ -68,7 +68,7 @@ const App: React.FunctionComponent = () => {
           />
           <Bio>
             <Paragraph title="My Story" text={bio[0].attributes.bio} />
-            {bio && <TagsList title="Skill set" tags={bio[0].attributes.teches.data} />}
+            {bio && <TagsList style={{ margin: "2rem" }} title="Skill set" tags={bio[0].attributes.teches.data} />}
           </Bio>
         </Section>
         <Section visability={portfolioVisible} setVisability={setPortfolioVisable} id="portfolio">
