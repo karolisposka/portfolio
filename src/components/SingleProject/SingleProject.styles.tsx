@@ -7,6 +7,7 @@ export const Container = Styled.div<props>`
   position:relative;
   font-family:${(props) => props.theme.fonts.name};
   background-image:url(${(props) => props.url});
+
   
 
 `;
@@ -18,4 +19,5 @@ export const Section = Styled.section`
   flex-direction:column;
   min-height:100vh;
   align-items:center;
+
 `;

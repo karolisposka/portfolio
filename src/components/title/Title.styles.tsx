@@ -32,7 +32,7 @@ export const Gap = Styled.div`
   height:3px;
   border-radius:5rem;
   margin:0.5rem;
-  background: #f1f506; 
+  background: ${(props) => props.theme.background.primary}; 
 `;
 
 export const SubTitle = Styled.span`

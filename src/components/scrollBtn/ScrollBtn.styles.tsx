@@ -7,7 +7,7 @@ export const ScrollBtn = Styled(LinkScroll)`
   padding: 0.5rem 1rem;
   clip-path: polygon(0 0, 100% 0, 95% 99%, 5% 99%);
   border-radius:0.25rem;
-  background:#F5EA5A;
+  background:${(props) => props.theme.background.primary};
   box-shadow: 50px 50px 50px black;
   font-weight:600;
   text-transform: uppercase;
@@ -24,7 +24,7 @@ export const NavigateBtn = Styled(Link)`
   padding: 0.5rem 1rem;
   clip-path: polygon(0 0, 100% 0, 95% 99%, 5% 99%);
   border-radius:0.25rem;
-  background:#F5EA5A;
+  background:${(props) => props.theme.background.primary};
   box-shadow: 50px 50px 50px black;
   font-weight:600;
   text-transform: uppercase;
@@ -38,5 +38,17 @@ export const NavigateBtn = Styled(Link)`
 `;
 
 export const AnchorLink = Styled.a`
-  
+  padding: 0.5rem 1rem;
+  clip-path: polygon(0 0, 100% 0, 95% 99%, 5% 99%);
+  border-radius:0.25rem;
+  background:${(props) => props.theme.background.primary};
+  box-shadow: 50px 50px 50px black;
+  font-weight:600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition:0.2s ease-in;
+  text-decoration:none;
+  color: black;
+  margin: 0 0.25rem;
+
 `;

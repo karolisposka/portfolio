@@ -11,7 +11,7 @@ const TagsList = ({ tags, title, style }: props) => {
   return (
     <S.Wrapper style={style}>
       <S.Title>{title}</S.Title>
-      <S.TagsList>{tags && tags.map((tag: string) => <S.ListTag text={tag} />)}</S.TagsList>
+      <S.TagsList>{tags && tags.map((tag: any) => <S.ListTag text={tag.attributes.tech} />)}</S.TagsList>
     </S.Wrapper>
   );
 };

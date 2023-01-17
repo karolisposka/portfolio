@@ -12,27 +12,15 @@ import TagsList from "../components/tagsList/TagsList";
 import Paragraph from "../components/paragrapth/Paragraph";
 import Bio from "../components/bio/Bio";
 
-const tags: string[] = [
-  "HTML",
-  "CSS",
-  "styled-components",
-  "react",
-  "redux",
-  "typescript",
-  "Formik",
-  "redux-persist",
-  "NodeJS",
-  "mySql",
-  "MongoDB",
-];
-
 const App: React.FunctionComponent = () => {
   const [mobileMenuStatus, setMobileMenuStatus] = useState<boolean>(false);
   const [windowPosition, setWindowPosition] = useState<number | undefined>();
   const [positionOpenedMenu, setPositionOpenedMenu] = useState<number | undefined>();
   const [aboutVisible, setAboutVisiable] = useState<boolean>(false);
   const [portfolioVisible, setPortfolioVisable] = useState<boolean>(false);
-  const [data] = useContext(MainPageData);
+  const [data, bio] = useContext(MainPageData);
+
+  console.log(bio);
 
   const updatePosition = () => {
     if (mobileMenuStatus) {
@@ -79,15 +67,8 @@ const App: React.FunctionComponent = () => {
             subtitle="Here you will find some of the personal projects that I created with each project containing its own case study"
           />
           <Bio>
-            <Paragraph
-              title="My Story"
-              text={`My path in front-end engineering started one year ago in CodeAcademy courses, where I got to know with                basics of Javascript. Since graduation I'm expanding my skill set by creating full-stack NodeJS
-                applications by integrating Redux, Typescript, React and other modern frameworks. Projects can be found
-                in Github Profile. My dedication to code and desire to learn something new on daily basis would be a
-                great fit for your company. I welcome an opportunity to speak with you if you fell I would be strong
-                candidate for this or any other position in your company.`}
-            />
-            <TagsList title="Skill set" tags={tags} />
+            <Paragraph title="My Story" text={bio[0].attributes.bio} />
+            {bio && <TagsList title="Skill set" tags={bio[0].attributes.teches.data} />}
           </Bio>
         </Section>
         <Section visability={portfolioVisible} setVisability={setPortfolioVisable} id="portfolio">

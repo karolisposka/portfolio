@@ -11,12 +11,12 @@ const fadeIn = keyframes`
 `;
 export const Wrapper = Styled.div`
     flex:1;
-    margin:2rem 0;
+    margin:0rem 2rem;
     animation-delay: 1.4s;
     animation: ${fadeIn} 0.7s forwards;
 `;
 
-export const Title = Styled.h3`
+export const Title = Styled.span`
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 1.3px;

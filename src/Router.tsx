@@ -8,9 +8,10 @@ import ZoomedImage from "./pages/ZoomedImage";
 
 const Router: React.FunctionComponent = () => {
   const [data, setData] = useState<string[] | null>(null);
+  const [bio, setBio] = useState();
   return (
     <BrowserRouter>
-      <MainPageData.Provider value={[data, setData]}>
+      <MainPageData.Provider value={[data, bio, setBio, setData]}>
         <Routes>
           <Route path="" element={<Fetch />}>
             <Route path="/" element={<App />} />

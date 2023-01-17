@@ -9,7 +9,7 @@ export const Container = Styled.div`
 export const Section = Styled.section`
   font-family: ${(props) => props.theme.fonts.name};
   max-width:1200px;
-  min-height:75vh;
+  min-height:50vh;
   margin:  0 auto;
   padding: 2rem;
 `;

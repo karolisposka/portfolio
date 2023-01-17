@@ -1,28 +1,25 @@
-import Styled from "styled-components";
+import Styled, { keyframes } from "styled-components";
 import { AiOutlineZoomIn, AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
-type props = {
-  image: string;
-};
-
 export const Container = Styled.div`
-  display:flex;
-  padding:1rem;
-  flex-direction:column;
   overflow:hidden;
-  width:100%;
+  width:500px;
   height:100%;
+  position:relative;
 `;
 
 export const ImageWrapper = Styled.div`
   position:relative;
-  width:100%;
+  height:100%;
 `;
 
+//image keframes
+
 export const MainImage = Styled.img`
-  width:100%;
+  width:500px;
   height:100%;
   object-fit:contain;
+  border-radius:0.25rem;
 `;
 
 export const ZoomIn = Styled(AiOutlineZoomIn)`
@@ -38,51 +35,49 @@ export const ZoomIn = Styled(AiOutlineZoomIn)`
   }
 `;
 
-export const ArrowRightWrapper = Styled.div`
-  position:absolute;
-  right:1rem;
-  display:flex;
-  align-items:Center;
-  justify-content:center;
-  background:rgba(0,0,0,0.7);
-  width:2rem;
-  height:2rem;
-  border-radius:50%;
+export const Navigation = Styled.div`
+  position:relative;
+  z-index:999;
+  height:100%;
 `;
 
-export const ArrowLeftWrapper = Styled.div`
+export const ArrowRightWrapper = Styled.button`
   position:absolute;
-  left:1rem;
   display:flex;
+  right:1rem;
   align-items:Center;
   justify-content:center;
   background:rgba(0,0,0,0.7);
   width:2rem;
   height:2rem;
   border-radius:50%;
+  z-index:99;
+  cursor:pointer;
+`;
+
+export const ArrowLeftWrapper = Styled.button`
+  position:absolute;
+    display:flex;
+    left:1rem;
+    align-items:Center;
+    justify-content:center;
+    background:rgba(0,0,0,0.7);
+    width:2rem;
+    height:2rem;
+    border-radius:50%;
+    z-index:99;
+    cursor:pointer;
+  
 `;
 
 export const ArrowRight = Styled(AiOutlineArrowRight)`
   font-size:24px;
-  color:white;
-
-  
+  color:red;
+  z-index:99;
 `;
 
 export const ArrowLeft = Styled(AiOutlineArrowLeft)`
   font-size:24px;
-  color:white;
-`;
-
-export const Pagination = Styled.div`
-  display:flex;
-  margin:0.5rem auto;
-`;
-
-export const PatigationItem = Styled.div`
-  width:0.75rem;
-  height:0.75rem;
-  margin:0 0.15rem;
-  border-radius:50%;
-  background: rgba(0,0,0,0.7);
+  color:red;
+  cursor:pointer;
 `;

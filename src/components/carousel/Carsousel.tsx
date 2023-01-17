@@ -1,72 +1,39 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import * as S from "./Carsousel.styles";
+import { useNavigate, useParams } from "react-router-dom";
+import { Autoplay, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
+import "swiper/css/pagination";
 
 type props = {
   images: any;
   handleZoom: (image: string) => void;
 };
 
-const Carsousel = ({ images, handleZoom }: props) => {
+const Carsousel = ({ images }: props) => {
   const base = process.env.REACT_APP_BASE_URL;
-  const [selectedImage, setSelectedImage] = useState("");
-  const [imageToDisplay, setImageToDisplay] = useState(0);
-
-  const slideLeft = () => {
-    const lengthOfImagesArr = images.attributes.carousel.data.length;
-    if (imageToDisplay === 0) {
-      setImageToDisplay(lengthOfImagesArr - 1);
-    } else {
-      setImageToDisplay(imageToDisplay - 1);
-    }
-  };
-
-  const slideRight = () => {
-    const lengthOfImagesArr = images.attributes.carousel.data.length;
-    if (imageToDisplay === lengthOfImagesArr - 1) {
-      setImageToDisplay(0);
-    } else {
-      setImageToDisplay(imageToDisplay + 1);
-    }
-  };
+  const navigate = useNavigate();
+  const { id } = useParams();
 
   return (
     <S.Container>
-      <S.ImageWrapper>
-        <S.MainImage src={`${base}${images.attributes.carousel.data[imageToDisplay].attributes.formats.medium.url}`} />
-        <S.ZoomIn
-          onClick={() => {
-            handleZoom(images.attributes.carousel.data[imageToDisplay].attributes.formats.medium.url);
-          }}
-        />
-        <S.ArrowLeftWrapper>
-          <S.ArrowLeft
-            onClick={() => {
-              slideLeft();
-            }}
-          />
-        </S.ArrowLeftWrapper>
-        <S.ArrowRightWrapper>
-          <S.ArrowRight
-            onClick={() => {
-              slideRight();
-            }}
-          />
-        </S.ArrowRightWrapper>
-      </S.ImageWrapper>
-      <S.Pagination>
+      <Swiper spaceBetween={16} slidesPerView={1} autoplay={true} pagination={true} modules={[Autoplay, Pagination]}>
         {images &&
-          images.attributes.carousel.data.map((image: any, index: number) => (
-            <S.PatigationItem
-              key={index}
-              id={image.id}
-              onClick={() => {
-                setSelectedImage(`${base}${image.attributes.formats.medium.url}`);
-              }}
-            />
+          images.data.map((image: any, index: number) => (
+            <SwiperSlide key={index}>
+              <S.ImageWrapper>
+                <S.MainImage src={`${base}${image.attributes.formats.medium.url}`} />
+                <S.ZoomIn
+                  onClick={() => {
+                    navigate(`/${id}/fullsize${image.attributes.formats.medium.url}`);
+                  }}
+                />
+              </S.ImageWrapper>
+            </SwiperSlide>
           ))}
-      </S.Pagination>
+      </Swiper>
     </S.Container>
   );
 };

@@ -16,13 +16,13 @@ export const Wrapper = Styled.div`
     animation-delay: 1.4s;
     animation: ${fadeIn} 0.7s forwards;
     @media(min-width:577px){
-        margin:2rem;
+      
     }
 
 
 `;
 
-export const Title = Styled.h3`
+export const Title = Styled.span`
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 1.3px;
