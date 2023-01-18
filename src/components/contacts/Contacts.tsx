@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import * as S from "./Contacts.styles";
 import { Formik } from "formik";
+import emailjs from "@emailjs/browser";
 import Input from "../input/Input";
 
 import * as yup from "yup";
@@ -11,10 +12,35 @@ type initialValues = {
 };
 
 const Contacts = () => {
+  const [response, setResponse] = useState<string | null>(null);
+  const form = useRef<HTMLFormElement | null>(null);
+
   const validationSchema = yup.object({
     email: yup.string().email("Must be valid email").required("required field"),
     text: yup.string().max(150, "exceeded 150 characters length").required("required field"),
   });
+
+  const sendEmail = async () => {
+    setResponse(null);
+    const currentForm = form.current;
+    if (currentForm == null) return;
+    try {
+      const res = await emailjs.sendForm(
+        `${process.env.REACT_APP_SERVICE_ID}`,
+        `${process.env.REACT_APP_EMAIL_TEMPLATE}`,
+        currentForm,
+        `${process.env.REACT_APP_EMAIL_KEY}`
+      );
+      const data = await res;
+      if (data.text === "OK") {
+        setResponse("Email successfully sent!");
+      } else {
+        setResponse("Oops something went wrong");
+      }
+    } catch (err) {
+      setResponse("Oops something went wrong");
+    }
+  };
 
   const initialValues: initialValues = {
     email: "",
@@ -26,8 +52,8 @@ const Contacts = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={(values, { resetForm }) => {
-          console.log(values);
+        onSubmit={(val, { resetForm }) => {
+          sendEmail();
           resetForm();
         }}
       >
@@ -35,7 +61,8 @@ const Contacts = () => {
           const { errors, values, touched, handleChange, handleSubmit, handleBlur } = formik;
           return (
             <>
-              <S.Form onSubmit={handleSubmit}>
+              <S.Form ref={form} onSubmit={handleSubmit}>
+                <S.Notification response={response === null ? false : true}>{response}</S.Notification>
                 <Input
                   type="email"
                   value={values.email}

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { MainPageData } from "../context";
-import { Outlet } from "react-router-dom";
 import Navigation from "../components/navigation/Navigation";
 import Section from "../components/section/Section";
 import Hero from "../components/hero/Hero";
@@ -12,6 +11,7 @@ import TagsList from "../components/tagsList/TagsList";
 import Paragraph from "../components/paragrapth/Paragraph";
 import Bio from "../components/bio/Bio";
 import Contacts from "../components/contacts/Contacts";
+import Footer from "../components/footer/Footer";
 
 const App: React.FunctionComponent = () => {
   const [mobileMenuStatus, setMobileMenuStatus] = useState<boolean>(false);
@@ -97,6 +97,7 @@ const App: React.FunctionComponent = () => {
         <Section visability={contactsVisible} setVisability={setContactsVisible} id="contacts">
           <Contacts />
         </Section>
+        <Footer />
       </Container>
     </div>
   );

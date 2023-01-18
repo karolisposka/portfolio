@@ -9,14 +9,17 @@ const MobileMenu = ({ status }: props) => {
   return (
     <S.MenuContainer status={status}>
       <S.Navbar>
-        <S.NavLink activeClass="active" to="hero" spy={true} smooth={true} offset={-150} duration={500}>
+        <S.NavLink activeClass="active" to="hero" spy={true} smooth={true} offset={-100} duration={500}>
           hero
         </S.NavLink>
-        <S.NavLink activeClass="active" to="portfolio" spy={true} smooth={true} offset={-150} duration={500}>
+        <S.NavLink activeClass="active" to="about" spy={true} smooth={true} offset={-100} duration={500}>
+          about
+        </S.NavLink>
+        <S.NavLink activeClass="active" to="portfolio" spy={true} smooth={true} offset={-100} duration={500}>
           Portfolio
         </S.NavLink>
-        <S.NavLink activeClass="active" to="about" spy={true} smooth={true} offset={-150} duration={500}>
-          about
+        <S.NavLink activeClass="active" to="contacts" spy={true} smooth={true} offset={-100} duration={500}>
+          Contacts
         </S.NavLink>
       </S.Navbar>
     </S.MenuContainer>
