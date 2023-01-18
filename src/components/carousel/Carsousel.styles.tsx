@@ -23,8 +23,8 @@ export const MainImage = Styled.img`
   object-fit:contain;
   border-radius:0.25rem;
   @media(max-width:576px){
-    max-width:600px;
-    min-width:400px;
+    width:100%;
+    object-fit:cover;
   }
 `;
 

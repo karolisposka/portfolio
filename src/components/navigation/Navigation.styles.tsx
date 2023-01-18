@@ -17,12 +17,28 @@ export const Header = Styled.div`
 `;
 
 export const LogoWrapper = Styled.div`
-    
+    margin: 0 1rem;
+    display:flex;
+    align-items:center;
 
 `;
 
+export const ProfileImage = Styled.img`
+    border-radius:50%;
+    width:4rem;
+    height:4rem;
+    object-fit: cover;
+    @media(min-width:577px){
+        width:6rem;
+        height:6rem;
+    }
+`;
+
 export const Span = Styled.span`
-    
+    margin-left: 0.5rem;
+    font-weight:900;
+    font-family:${(props) => props.theme.fonts.name};
+    text-transform:uppercase;
 
 `;
 

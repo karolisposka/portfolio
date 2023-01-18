@@ -11,7 +11,7 @@ export const MenuContainer = Styled.div<props>`
     font-family:${(props) => props.theme.fonts.name};
     text-transform:capitalize;
     font-size:20px;
-    top:6.2rem;
+    top:8.2rem;
     right:0;
     height:calc(100vh - 6.2rem);
     transition: 0.3s ease-in-out;

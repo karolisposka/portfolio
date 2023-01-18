@@ -11,16 +11,16 @@ import ProjectsCard from "../components/project/ProjectsCard";
 import TagsList from "../components/tagsList/TagsList";
 import Paragraph from "../components/paragrapth/Paragraph";
 import Bio from "../components/bio/Bio";
+import Contacts from "../components/contacts/Contacts";
 
 const App: React.FunctionComponent = () => {
   const [mobileMenuStatus, setMobileMenuStatus] = useState<boolean>(false);
   const [windowPosition, setWindowPosition] = useState<number | undefined>();
   const [positionOpenedMenu, setPositionOpenedMenu] = useState<number | undefined>();
   const [aboutVisible, setAboutVisiable] = useState<boolean>(false);
+  const [contactsVisible, setContactsVisible] = useState<boolean>(false);
   const [portfolioVisible, setPortfolioVisable] = useState<boolean>(false);
   const [data, bio] = useContext(MainPageData);
-
-  console.log(bio);
 
   const updatePosition = () => {
     if (mobileMenuStatus) {
@@ -71,7 +71,12 @@ const App: React.FunctionComponent = () => {
             {bio && <TagsList style={{ margin: "0 2rem" }} title="Skill set" tags={bio[0].attributes.teches.data} />}
           </Bio>
         </Section>
-        <Section visability={portfolioVisible} setVisability={setPortfolioVisable} id="portfolio">
+        <Section
+          visability={portfolioVisible}
+          setVisability={setPortfolioVisable}
+          id="portfolio"
+          style={{ minHeight: "100vh" }}
+        >
           <Title
             title="projects"
             subtitle="Here you will find some of the personal projects that I created with each project containing its own case study"
@@ -89,7 +94,9 @@ const App: React.FunctionComponent = () => {
               />
             ))}
         </Section>
-        <Outlet />
+        <Section visability={contactsVisible} setVisability={setContactsVisible} id="contacts">
+          <Contacts />
+        </Section>
       </Container>
     </div>
   );

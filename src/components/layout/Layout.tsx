@@ -3,10 +3,11 @@ import * as S from "./layout.styles";
 
 type props = {
   children: React.ReactNode;
+  className?: string;
 };
 
-const Layout = ({ children }: props) => {
-  return <S.Container>{children}</S.Container>;
+const Layout = ({ children, className }: props) => {
+  return <S.Container className={className}>{children}</S.Container>;
 };
 
 export default Layout;

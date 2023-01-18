@@ -7,7 +7,7 @@ type props = {
 export const Container = Styled.section<props>`
     background-image: url(${(props) => props.url});
     background-size:cover;
-    height:calc(100vh - 86.4px);
+    height:100vh;
     display:Flex;
     justify-content:center;
     align-items:center;

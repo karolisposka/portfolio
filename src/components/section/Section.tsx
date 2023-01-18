@@ -6,12 +6,13 @@ type props = {
   id: string;
   setVisability: React.Dispatch<React.SetStateAction<boolean | boolean>>;
   visability: boolean;
+  style?: React.CSSProperties;
 };
 
-const Section = ({ children, id, setVisability, visability }: props) => {
+const Section = ({ children, id, setVisability, visability, style }: props) => {
   const options = {
     threshold: 0.5,
-    rootMargin: "150px",
+    rootMargin: "0px",
   };
 
   const ref: any = useRef();
@@ -31,7 +32,7 @@ const Section = ({ children, id, setVisability, visability }: props) => {
 
   return (
     <S.Container>
-      <S.Section id={id} ref={ref}>
+      <S.Section id={id} ref={ref} style={style}>
         {visability && children}
       </S.Section>
     </S.Container>

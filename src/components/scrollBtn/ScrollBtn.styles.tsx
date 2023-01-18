@@ -52,3 +52,18 @@ export const AnchorLink = Styled.a`
   margin: 0 0.25rem;
 
 `;
+
+export const Button = Styled.button`
+  position:relative;
+  padding: 0.5rem 1rem;
+  background:${(props) => props.theme.background.primary};
+  font-weight:600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition:0.2s ease-in;
+  text-decoration:none;
+  color: black;
+  &:hover{
+    background:#def10ca2;
+  }
+`;

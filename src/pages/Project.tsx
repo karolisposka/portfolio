@@ -14,14 +14,6 @@ const Project: React.FunctionComponent = () => {
   const [data, setData] = useState<any>();
   const { id } = useParams();
 
-  const style = {
-    width: "50%",
-    "@media (npm i radium-width: 576px)": {
-      width: "100%",
-      color: "red",
-    },
-  };
-
   const fetchData = async () => {
     const base = process.env.REACT_APP_BASE_URL;
     try {
@@ -45,25 +37,25 @@ const Project: React.FunctionComponent = () => {
         <SingleProject>
           <Button type="link" to={-1} text="back" />
           <Title title={data.attributes.title} />
-          <Layout>
+          <Layout className="column">
             <Carsousel
               images={data.attributes.carousel}
               handleZoom={(image) => {
                 navigate(`/${id}/fullsize${image}`);
               }}
             />
-            <div style={style}>
+            <Layout className="flex">
               <Paragraph text={data.attributes.description} title="Description" />
               <TagsList style={{ margin: "2rem" }} title="Key technologies" tags={data.attributes.teches.data} />
               <div style={{ display: "flex", margin: "2rem" }}>
                 {data.attributes.links.data[0].attributes.live && (
-                  <Button type="button" to={data.attributes.links.data[0].attributes.live} text="Live" />
+                  <Button type="anchor" to={data.attributes.links.data[0].attributes.live} text="Live" />
                 )}
                 {data.attributes.links.data[0].attributes.github && (
-                  <Button type="button" to={data.attributes.links.data[0].attributes.github} text="Github" />
+                  <Button type="anchor" to={data.attributes.links.data[0].attributes.github} text="Github" />
                 )}
               </div>
-            </div>
+            </Layout>
           </Layout>
           <Outlet />
         </SingleProject>
