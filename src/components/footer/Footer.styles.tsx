@@ -18,8 +18,9 @@ export const Footer = Styled.footer<props>`
 
 export const ContactsWrapper = Styled.div`
     display:flex;
+    flex-direction:column;
     @media(min-width:577px){
-      
+      flex-direction:row; 
     }
 `;
 
@@ -34,16 +35,27 @@ export const ContactWrapper = Styled.div`
 `;
 
 export const Mobile = Styled(AiOutlineMobile)`
-  font-size:36px;
+  font-size:18px;
+  @media(min-width:577px){
+    font-size:36px;
+  }
 `;
 
 export const Email = Styled(AiOutlineMail)`
-  font-size:36px;
+  font-size:18px;
+  @media(min-width:577px){
+    font-size:36px;
+  }
 `;
 
 export const Span = Styled.span`
-  font-size:24px;
+  font-size:18px;
   font-family: ${(props) => props.theme.fonts.name};
   margin-left: 0.5rem;
   font-weight:600;
+  font-size:18px;
+  @media(min-width:577px){
+    font-size:36px;
+  }
+
 `;

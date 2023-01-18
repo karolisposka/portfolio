@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import * as S from "./Contacts.styles";
 import { Formik } from "formik";
 import emailjs from "@emailjs/browser";
@@ -20,6 +20,11 @@ const Contacts = () => {
     text: yup.string().max(150, "exceeded 150 characters length").required("required field"),
   });
 
+  const initialValues: initialValues = {
+    email: "",
+    text: "",
+  };
+
   const sendEmail = async () => {
     setResponse(null);
     const currentForm = form.current;
@@ -34,18 +39,20 @@ const Contacts = () => {
       const data = await res;
       if (data.text === "OK") {
         setResponse("Email successfully sent!");
+        setTimeout(() => {
+          setResponse(null);
+        }, 5000);
       } else {
         setResponse("Oops something went wrong");
+        setTimeout(() => {
+          setResponse(null);
+        }, 5000);
       }
     } catch (err) {
       setResponse("Oops something went wrong");
     }
   };
 
-  const initialValues: initialValues = {
-    email: "",
-    text: "",
-  };
   return (
     <>
       <S.StyledTitle title="have a question?" subtitle="Contact me!" />

@@ -17,7 +17,7 @@ export const Header = Styled.div`
 `;
 
 export const LogoWrapper = Styled.div`
-    margin: 0 1rem;
+    margin: 0 2rem;
     display:flex;
     align-items:center;
 
@@ -25,12 +25,12 @@ export const LogoWrapper = Styled.div`
 
 export const ProfileImage = Styled.img`
     border-radius:50%;
-    width:4rem;
-    height:4rem;
+    width:3rem;
+    height:3rem;
     object-fit: cover;
     @media(min-width:577px){
-        width:6rem;
-        height:6rem;
+        width:4rem;
+        height:4rem;
     }
 `;
 

@@ -22,38 +22,39 @@ type notificationProps = {
 
 const rendered = keyframes`
   0%{
-    top: -30px;
+    margin-top: -100px;
   }  
   100%{
-    top: 0;
+    margin-top:0;
   }
 `;
 
 const closed = keyframes`
   0%{
-    top:0;
+    margin-top:0;
   }  
   100%{
-    top: -30px;
+    margin-top: -100px;
   }
 `;
 
 const animationEnter = css`
-  animation: 1s ${rendered} forwards;
+  animation: 0.5s ${rendered} ease-in;
 `;
 
 const animationClose = css`
-  animation: 1s ${closed} forwards;
+  animation: 0.5s ${closed} forwards;
 `;
 
 export const Notification = Styled.div<notificationProps>`
   width:100%;
   position:absolute;
-  background:green;
+  background:#54B435;
   color:white;
+  padding:1.5rem 0.75rem;
   top:0;
   left:0;
-  ${(props) => (props.response ? animationClose : animationEnter)};
+  ${(props) => (props.response === true ? animationEnter : animationClose)};
 `;
 
 export const StyledTitle = Styled(Title)`
