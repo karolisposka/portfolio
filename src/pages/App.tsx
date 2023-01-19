@@ -90,7 +90,7 @@ const App: React.FunctionComponent = () => {
                 index={item.id}
                 scrolled={portfolioVisible}
                 to={`/${item.id}`}
-                image={`${process.env.REACT_APP_BASE_URL}${item.attributes.thumbnail.data.attributes.formats.medium.url}`}
+                image={`${item.attributes.thumbnail.data.attributes.formats.medium.url}`}
               />
             ))}
         </Section>

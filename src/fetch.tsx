@@ -8,8 +8,6 @@ const Fetch = () => {
   const [data, bio, setBio, setData] = useContext(MainPageData);
   const base = process.env.REACT_APP_BASE_URL;
 
-  console.log(data);
-
   const fetchData = async () => {
     try {
       const res = await fetch(`${base}/api/bios/?populate=teches`);
@@ -19,7 +17,6 @@ const Fetch = () => {
       const data = await response.json();
       setData(data.data);
     } catch (err) {
-      console.log(err);
       console.log("Oops! Something wrong with server. Please try again later");
     }
   };

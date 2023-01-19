@@ -28,9 +28,12 @@ type props = {
 export const Input = Styled.input<props>`
   padding:0.75rem 0.25rem;
   display:inline-block;
-  border: ${(props) => (props.error ? "1px solid #DC3535" : "1px solid blue")};
+  border: ${(props) => (props.error ? "2px solid #DC3535" : "2px solid #F5EA5A")};
   border-radius:0.5rem;
-  outline: none;
+  outline:none;
+  &:focus{
+    border:2px solid #F5EA5A;
+  }
 `;
 
 export const Error = Styled.span`
@@ -43,10 +46,11 @@ export const Error = Styled.span`
 export const Textarea = Styled.textarea<props>`
   display:block;
   resize: none;
-  border: ${(props) => (props.error ? "1px solid #DC3535" : "1px solid blue")};
-  outline: none;
+  border: ${(props) => (props.error ? "2px solid #DC3535" : "2px solid #F5EA5A")};
   border-radius:0.5rem;
+  outline: none;
   &:focus{
-    border: 1px solid blue;
+    border:2px solid #F5EA5A;
   }
+ 
 `;

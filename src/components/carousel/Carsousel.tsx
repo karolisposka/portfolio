@@ -24,7 +24,7 @@ const Carsousel = ({ images }: props) => {
           images.data.map((image: any, index: number) => (
             <SwiperSlide key={index}>
               <S.ImageWrapper>
-                <S.MainImage src={`${base}${image.attributes.formats.medium.url}`} />
+                <S.MainImage src={`${image.attributes.formats.medium.url}`} />
                 <S.ZoomIn
                   onClick={() => {
                     navigate(`/${id}/fullsize${image.attributes.formats.medium.url}`);
