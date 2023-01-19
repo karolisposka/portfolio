@@ -27,7 +27,7 @@ const Carsousel = ({ images }: props) => {
                 <S.MainImage src={`${image.attributes.formats.medium.url}`} />
                 <S.ZoomIn
                   onClick={() => {
-                    navigate(`/${id}/fullsize${image.attributes.formats.medium.url}`);
+                    navigate(`/${id}/fullsize/${image.attributes.formats.medium.url}`);
                   }}
                 />
               </S.ImageWrapper>

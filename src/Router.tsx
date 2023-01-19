@@ -16,7 +16,7 @@ const Router: React.FunctionComponent = () => {
           <Route path="" element={<Fetch />}>
             <Route path="/" element={<App />} />
             <Route path="/:id" element={<Project />}>
-              <Route path="/:id/fullsize/uploads/:image" element={<ZoomedImage />} />
+              <Route path="/:id/fullsize/:image" element={<ZoomedImage />} />
             </Route>
           </Route>
         </Routes>

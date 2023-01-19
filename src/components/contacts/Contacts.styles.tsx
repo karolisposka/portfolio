@@ -3,7 +3,7 @@ import Title from "../title/Title";
 import Button from "../scrollBtn/ScrollBtn";
 
 export const Form = Styled.form`
-  width:60%;
+  width:40%;
   position:relative;
   border-radius:0.25rem;
   box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.25);

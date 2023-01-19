@@ -69,7 +69,7 @@ const Contacts = () => {
           return (
             <>
               <S.Form ref={form} onSubmit={handleSubmit}>
-                <S.Notification response={response === null ? false : true}>{response}</S.Notification>
+                {response && <S.Notification response={response === null ? false : true}>{response}</S.Notification>}
                 <Input
                   type="email"
                   value={values.email}

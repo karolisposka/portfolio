@@ -15,8 +15,10 @@ const ZoomedImage = () => {
     }
   }, [image]);
 
+  console.log(largeImage);
+
   return (
-    <S.Container image={`${base}/uploads/${largeImage}`}>
+    <S.Container image={`${largeImage}`}>
       <S.CloseBtn
         onClick={() => {
           navigate(-1);
