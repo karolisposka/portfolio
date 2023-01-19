@@ -8,5 +8,4 @@ export const Wrapper = Styled.div`
   }
   display:flex;
   flex-direction:row;
-
 `;

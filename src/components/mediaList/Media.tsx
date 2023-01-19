@@ -1,9 +1,13 @@
 import React from "react";
 import * as S from "./Media.styles";
 
-const Media = () => {
+type props = {
+  className?: string;
+};
+
+const Media = ({ className }: props) => {
   return (
-    <S.MediaContainer>
+    <S.MediaContainer className={className}>
       <S.List>
         <S.Link href="https://github.com/karolisposka" target="_blank">
           <S.GitIcon />

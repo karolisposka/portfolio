@@ -16,7 +16,7 @@ export const Wrapper = Styled.div`
     animation-delay: 1.4s;
     animation: ${fadeIn} 0.7s forwards;
     @media(min-width:577px){
-      
+      margin-left: 2rem;
     }
 
 

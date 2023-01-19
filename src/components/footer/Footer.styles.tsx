@@ -1,5 +1,7 @@
 import Styled from "styled-components";
-import { AiOutlineMobile, AiOutlineMail } from "react-icons/ai";
+import { ReactComponent as Github } from "../../assets/github.svg";
+import { ReactComponent as Linkedin } from "../../assets/linkedin.svg";
+import { AiOutlineMobile, AiOutlineMail, AiOutlineCopyrightCircle } from "react-icons/ai";
 
 type props = {
   url: string;
@@ -34,18 +36,46 @@ export const ContactWrapper = Styled.div`
 
 `;
 
+export const MediaList = Styled.div`
+  display:flex;
+  justify-content:Center;
+  margin: 1rem;
+
+`;
+
+export const Anchor = Styled.a`
+  
+  
+`;
+
+export const LinkedinIcon = Styled(Linkedin)`
+  padding:0.5rem;
+  font-size:24px;
+
+`;
+
+export const GitHubIcon = Styled(Github)`
+  padding: 0.5rem;
+  font-size:24px;
+  
+`;
+
 export const Mobile = Styled(AiOutlineMobile)`
   font-size:18px;
   @media(min-width:577px){
-    font-size:36px;
+    font-size:24px;
   }
 `;
 
 export const Email = Styled(AiOutlineMail)`
   font-size:18px;
   @media(min-width:577px){
-    font-size:36px;
+    font-size:24px;
   }
+`;
+
+export const Copyright = Styled(AiOutlineCopyrightCircle)`
+  margin: 0,25rem;
 `;
 
 export const Span = Styled.span`
@@ -53,9 +83,10 @@ export const Span = Styled.span`
   font-family: ${(props) => props.theme.fonts.name};
   margin-left: 0.5rem;
   font-weight:600;
-  font-size:18px;
+  display:flex;
+  align-items:center;
   @media(min-width:577px){
-    font-size:36px;
+
   }
 
 `;

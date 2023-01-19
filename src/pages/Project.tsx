@@ -38,14 +38,9 @@ const Project: React.FunctionComponent = () => {
           <Button type="link" to={-1} text="back" />
           <Title title={data.attributes.title} />
           <Layout className="column">
-            <Carsousel
-              images={data.attributes.carousel}
-              handleZoom={(image) => {
-                navigate(`/${id}/fullsize${image}`);
-              }}
-            />
+            <Carsousel images={data.attributes.carousel} />
             <Layout className="flex">
-              <Paragraph text={data.attributes.description} title="Description" />
+              <Paragraph text={data.attributes.description} title="Description" style={{ margin: "0 2rem" }} />
               <TagsList style={{ margin: "2rem" }} title="Key technologies" tags={data.attributes.teches.data} />
               <div style={{ display: "flex", margin: "2rem" }}>
                 {data.attributes.links.data[0].attributes.live && (

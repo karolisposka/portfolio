@@ -3,19 +3,27 @@ import * as S from "./Carsousel.styles";
 import { useNavigate, useParams } from "react-router-dom";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { AES, enc } from "crypto-js";
+// import Utf8 from "crypto-js/enc-utf8";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
 type props = {
   images: any;
-  handleZoom: (image: string) => void;
 };
 
 const Carsousel = ({ images }: props) => {
-  const base = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
   const { id } = useParams();
+
+  const encryptSecret = process.env.REACT_APP_ENCRYPT;
+
+  const encrypt = (plaintext: string) => {
+    const encrypted = AES.encrypt(plaintext, encryptSecret).toString();
+    const wordArray = enc.Base64.parse(encrypted);
+    return enc.Hex.stringify(wordArray);
+  };
 
   return (
     <S.Container>
@@ -27,7 +35,8 @@ const Carsousel = ({ images }: props) => {
                 <S.MainImage src={`${image.attributes.formats.medium.url}`} />
                 <S.ZoomIn
                   onClick={() => {
-                    navigate(`/${id}/fullsize/${image.attributes.formats.medium.url}`);
+                    const data = encrypt(image.attributes.formats.medium.url);
+                    navigate(`/${id}/fullsize/${data}`);
                   }}
                 />
               </S.ImageWrapper>

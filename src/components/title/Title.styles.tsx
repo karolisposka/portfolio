@@ -23,6 +23,7 @@ export const Wrapper = Styled.div`
 export const Title = Styled.h1`
   text-transform: uppercase;
   letter-spacing: 1.2px;
+  text-align:center;
   margin: 0;
   font-weight:600;
 `;

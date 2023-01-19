@@ -9,7 +9,8 @@ export const Container = Styled.div<props>`
   top:0;
   left:0;
   width:100%;
-  height:100vh;
+  min-height:100vh;
+  height:100;
   position:absolute;
   z-index:3;
  
