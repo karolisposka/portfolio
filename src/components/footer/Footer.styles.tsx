@@ -8,11 +8,11 @@ type props = {
 };
 
 export const Footer = Styled.footer<props>`
-  padding:2rem;
+  padding:1rem 2rem;
   background-image: url(${(props) => props.url});
   @media(min-width:577px){
     display:flex;
-    flex-direction:column;
+    justify-Content:space-between;
     align-items:center;
   }
 

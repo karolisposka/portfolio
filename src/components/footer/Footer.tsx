@@ -24,11 +24,6 @@ const Footer = () => {
           <S.GitHubIcon />
         </S.Anchor>
       </S.MediaList>
-      <S.Span>
-        <S.Copyright />
-        Copyrights Karolis Poška
-      </S.Span>
-      <S.Span>{`${date}`}</S.Span>
     </S.Footer>
   );
 };

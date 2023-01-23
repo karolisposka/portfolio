@@ -5,6 +5,7 @@ import Project from "./pages/Project";
 import Fetch from "./fetch";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import ZoomedImage from "./pages/ZoomedImage";
+import Empty from "./pages/Empty";
 
 const Router: React.FunctionComponent = () => {
   const [data, setData] = useState<string[] | null>(null);
@@ -19,6 +20,7 @@ const Router: React.FunctionComponent = () => {
               <Route path="/:id/fullsize/:image" element={<ZoomedImage />} />
             </Route>
           </Route>
+          <Route path="*" element={<Empty />} />
         </Routes>
       </MainPageData.Provider>
     </BrowserRouter>
