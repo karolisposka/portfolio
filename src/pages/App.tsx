@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { MainPageData } from "../context";
 import Navigation from "../components/navigation/Navigation";
 import Section from "../components/section/Section";
@@ -10,44 +10,18 @@ import ProjectsCard from "../components/project/ProjectsCard";
 import TagsList from "../components/tagsList/TagsList";
 import Paragraph from "../components/paragrapth/Paragraph";
 import Bio from "../components/bio/Bio";
+import Timeline from "../components/timeline/Timeline";
 import Contacts from "../components/contacts/Contacts";
 import Footer from "../components/footer/Footer";
 
 const App: React.FunctionComponent = () => {
   const [mobileMenuStatus, setMobileMenuStatus] = useState<boolean>(false);
-  const [windowPosition, setWindowPosition] = useState<number | undefined>();
-  const [positionOpenedMenu, setPositionOpenedMenu] = useState<number | undefined>();
   const [aboutVisible, setAboutVisiable] = useState<boolean>(false);
   const [contactsVisible, setContactsVisible] = useState<boolean>(false);
   const [portfolioVisible, setPortfolioVisable] = useState<boolean>(false);
   const [data, bio] = useContext(MainPageData);
 
-  const updatePosition = () => {
-    if (mobileMenuStatus) {
-      setPositionOpenedMenu(window.scrollY);
-    }
-  };
-
-  //function updates window scroll location while mobile menu is open
-
-  useEffect(() => {
-    window.addEventListener("scroll", updatePosition);
-
-    return () => {
-      window.removeEventListener("scroll", updatePosition);
-    };
-  }, [window.scrollY]);
-
-  // function changes mobileMenu state if window has scrolled
-
-  useEffect(() => {
-    if (positionOpenedMenu !== windowPosition) {
-      setMobileMenuStatus(false);
-    }
-  }, [positionOpenedMenu]);
-
   const handleBurgetClick = () => {
-    setWindowPosition(window.scrollY);
     setMobileMenuStatus(!mobileMenuStatus);
   };
 
@@ -70,6 +44,7 @@ const App: React.FunctionComponent = () => {
             <Paragraph title="My Story" text={bio[0].attributes.bio} />
             {bio && <TagsList title="Skill set" tags={bio[0].attributes.teches.data} />}
           </Bio>
+          <Timeline />
         </Section>
         <Section
           visability={portfolioVisible}

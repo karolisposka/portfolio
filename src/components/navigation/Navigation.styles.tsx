@@ -1,23 +1,25 @@
 import Styled from "styled-components";
 import { Link } from "react-scroll";
-import { FaBars } from "react-icons/fa";
 
 export const Header = Styled.div`
     position:sticky;
-    padding: 2rem 0;
     top:0;
     left:0;
     background:#ffffff;
-    width:100%;  
-    display:flex;
-    justify-content:space-between;
-    align-items: center;  
+    width:100%;   
     box-shadow: 0 4px 2px -2px gray;
     z-index:3;
+    padding:2rem 0;
+`;
+
+export const ContentFlex = Styled.div`
+    margin:0 2rem;
+    display:flex;
+    justify-content:space-between;
+    align-items: center; 
 `;
 
 export const LogoWrapper = Styled.div`
-    margin: 0 2rem;
     display:flex;
     align-items:center;
 
@@ -65,21 +67,52 @@ export const NavLink = Styled(Link)`
     }
 `;
 
-export const BurgerMenu = Styled.div`
-    border: 1px solid rgba(0,0,0,0.3);
-    margin:0 1rem;
-    border-radius:0.25rem;
-    display:none;
-    align-items:Center;
-    justify-content:Center;
-    @media(max-width:576px){
-        display:flex;
+export const MenuButton = Styled.button`
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    border-radius:5px;
+    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75);    
+    &[aria-expanded = 'true'] .line{
+        transition: y 250ms ease-in, opacity 0ms ease-in 250ms, transform 250ms ease-in 250ms, fill 250ms ease-in 500ms;
+    };
+    &[aria-expanded = 'true'] .first-line {
+        y: 50;
+        transform: rotate(-45deg);
+        fill:${(props) => props.theme.background.danger};
+    };
+    &[aria-expanded = 'true'] .second-line{
+        opacity: 0;
+    };
+    &[aria-expanded = 'true'] .third-line {
+        y: 50;
+        transform: rotate(45deg);
+        fill:${(props) => props.theme.background.danger};
+    };
+
+    @media(min-width:576px){
+        display:none;
     }
 `;
 
-export const BurgerMenuItem = Styled(FaBars)`
-    cursor:pointer;
-    padding:0.25rem;
-    font-size:24px;
-  
+export const Svg = Styled.svg`
+   
+`;
+
+export const Rect = Styled.rect`
+    transition: y 250ms ease-in 250ms, opacity 0ms ease-in 250ms, transform 250ms ease-in;
+    transform-origin:center;
+    rx:5;
+    &:first-of-type{
+        x:10;
+        y: 20;
+    }   
+    &:nth-of-type(2){
+        x:10;
+        y: 50;
+    }  
+    &:nth-of-type(3){
+        x:10;
+        y: 80;
+    }    
 `;

@@ -7,6 +7,7 @@ export const theme = {
     },
     background: {
         primary: '#F5EA5A',
-        secondary: '#39B5E0'
+        secondary: '#39B5E0',
+        danger: '#F94A29'
     }
 }
